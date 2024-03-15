@@ -15,8 +15,8 @@
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
     "isbot": "^4.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.0-canary-a870b2d54-20240314",
+    "react-dom": "^18.3.0-canary-a870b2d54-20240314",
     "vite-env-only": "^2.2.0"
   },
   "devDependencies": {
@@ -34,6 +34,10 @@
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "overrides": {
+    "react": "^18.3.0-canary-a870b2d54-20240314",
+    "react-dom": "^18.3.0-canary-a870b2d54-20240314"
   },
   "engines": {
     "node": ">=18.0.0"
