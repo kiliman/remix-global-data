@@ -6,7 +6,12 @@
 
 import { PassThrough } from "node:stream";
 
-import type { AppLoadContext, EntryContext } from "@remix-run/node";
+import type {
+  AppLoadContext,
+  EntryContext,
+  ErrorResponse,
+  LoaderFunctionArgs,
+} from "@remix-run/node";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
@@ -137,4 +142,23 @@ function handleBrowserRequest(
 
     setTimeout(abort, ABORT_DELAY);
   });
+}
+
+// since the ErrorBoundary can not access loader data, if we need to access
+// any data that is dependent on the current request, we need to marshal
+// that data into the error message so we can access it in the ErrorBoundary
+// here, we are marshalling the hostname into the error message as JSON
+// the error object is mutated and Remix simply returns the updated object
+export function handleError(
+  error: Error | ErrorResponse,
+  { request }: LoaderFunctionArgs
+) {
+  const url = new URL(request.url);
+  if ("data" in error) {
+    const e = error as ErrorResponse;
+    e.data = JSON.stringify({ message: e.data, hostname: url.hostname });
+  } else {
+    const e = error as Error;
+    e.message = JSON.stringify({ message: e.message, hostname: url.hostname });
+  }
 }
