@@ -66,7 +66,7 @@ type AppGlobalsType = {
   CLIENT_KEY: string;
   ENV_FILE: string[];
 };
-a;
+
 // export a function that returns the app globals with the correct type
 export function getAppGlobals(): AppGlobalsType {
   return AppGlobals.get<AppGlobalsType>();
