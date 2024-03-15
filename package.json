@@ -16,7 +16,8 @@
     "@remix-run/serve": "^2.8.1",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vite-env-only": "^2.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.8.1",
