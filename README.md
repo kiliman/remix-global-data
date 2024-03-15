@@ -6,6 +6,8 @@ that you return that data from the _root_ loader. This is even called out in the
 Remix documentation for things like [environment
 variables](https://remix.run/docs/en/main/guides/envvars#browser-environment-variables).
 
+See example app: https://remix-global-data-production.up.railway.app/
+
 ## ⛔️ `ErrorBoundary`
 
 However, there is one drawback to this process. Remix will render your
